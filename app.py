@@ -30,7 +30,7 @@ def deregister():
     db = get_db().cursor()
     id = request.form.get("id")
     if id: 
-        db.execute("DELETE FROM registrants WHERE id = ?", id)
+        db.execute("DELETE FROM registrants WHERE id = ?", (id))
     get_db().commit()
     return redirect("/registrants")
 
